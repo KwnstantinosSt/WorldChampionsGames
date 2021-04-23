@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Ολυμπιακοί Αγώνες</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Ολυμπιακοί Αγώνες</string>
+    <string name="nav_header_subtitle">prohgmenaThemataAllilepidrasis.Team58@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Αρχική</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="sport">Άθλημα</string>
+    <string name="athlete">Αθλητής</string>
+    <string name="team">Ομάδα</string>
+    <string name="games">Παιχνίδια</string>
+
+    <string name="app_info">Πληροφορίες Εφαρμογής</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="insert">Εισαγωγή</string>
+    <string name="update">Τροποποίηση</string>
+    <string name="delete">Διαγραφή</string>
+    <string name="view">Προβολή</string>
+
+</resources>

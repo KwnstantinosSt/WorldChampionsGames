@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1683226651",
+    "project_id": "worlds-champions-games",
+    "storage_bucket": "worlds-champions-games.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1683226651:android:15106fbc231f0dde44f8be",
+        "android_client_info": {
+          "package_name": "com.example.myapplication_drawer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1683226651-ql25n6amhbgcfusemvt65qjnbe6737kd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYw4eOMA11ionyiah9M7PkS9DCdEdphxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1683226651-ql25n6amhbgcfusemvt65qjnbe6737kd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1683226651:android:22be4d997d353fcf44f8be",
+        "android_client_info": {
+          "package_name": "com.example.worldschampionsgames"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1683226651-ql25n6amhbgcfusemvt65qjnbe6737kd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYw4eOMA11ionyiah9M7PkS9DCdEdphxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1683226651-ql25n6amhbgcfusemvt65qjnbe6737kd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

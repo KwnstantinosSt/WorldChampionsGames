@@ -1,0 +1,28 @@
+package com.example.myapplication_drawer.dialogMessages;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDialogFragment;
+
+public class InfoDialog extends AppCompatDialogFragment {
+
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Πληροφορίες Εφαρμογής").setMessage("Εφαρμογή Αγώνων\nΟμάδα:58\nΠροηγμένα Θέματα Αλληλεπίδρασης").setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        //return super.onCreateDialog(savedInstanceState);
+        return builder.create();
+    }
+}

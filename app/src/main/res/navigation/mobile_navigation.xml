@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.myapplication_drawer.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_sport"
+        android:name="com.example.myapplication_drawer.ui.sport.SportFragment"
+        android:label="@string/sport"
+        tools:layout="@layout/fragment_sport" >
+        <action
+            android:id="@+id/action_nav_sport_to_nav_sport_inserts"
+            app:destination="@id/nav_sport_inserts" />
+        <action
+            android:id="@+id/action_nav_sport_to_sportUpdateFragment"
+            app:destination="@id/sportUpdateFragment" />
+        <action
+            android:id="@+id/action_nav_sport_to_sportDeleteFragment"
+            app:destination="@id/sportDeleteFragment" />
+        <action
+            android:id="@+id/action_nav_sport_to_sportViewFragment"
+            app:destination="@id/sportViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_athlete"
+        android:name="com.example.myapplication_drawer.ui.athlete.AthleteFragment"
+        android:label="@string/athlete"
+        tools:layout="@layout/fragment_athlete" >
+        <action
+            android:id="@+id/action_nav_athlete_to_nav_athlete_insert"
+            app:destination="@id/nav_athlete_insert" />
+        <action
+            android:id="@+id/action_nav_athlete_to_nav_athlete_delete"
+            app:destination="@id/nav_athlete_delete" />
+        <action
+            android:id="@+id/action_nav_athlete_to_nav_athlete_update"
+            app:destination="@id/nav_athlete_update" />
+        <action
+            android:id="@+id/action_nav_athlete_to_nav_athlete_view"
+            app:destination="@id/nav_athlete_view" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_team"
+        android:name="com.example.myapplication_drawer.ui.team.TeamFragment"
+        android:label="@string/team"
+        tools:layout="@layout/fragment_team" >
+        <action
+            android:id="@+id/action_nav_team_to_nav_team_inserts"
+            app:destination="@id/nav_team_inserts" />
+        <action
+            android:id="@+id/action_nav_team_to_teamUpdateFragment"
+            app:destination="@id/teamUpdateFragment" />
+        <action
+            android:id="@+id/action_nav_team_to_teamDeleteFragment"
+            app:destination="@id/teamDeleteFragment" />
+        <action
+            android:id="@+id/action_nav_team_to_teamViewFragment"
+            app:destination="@id/teamViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_games"
+        android:name="com.example.myapplication_drawer.ui.games.GamesFragment"
+        android:label="@string/games"
+        tools:layout="@layout/fragment_games" >
+        <action
+            android:id="@+id/action_nav_games_to_nav_games_kinds"
+            app:destination="@id/nav_games_kinds" />
+        <action
+            android:id="@+id/action_nav_games_to_nav_games_deletes"
+            app:destination="@id/nav_games_deletes" />
+        <action
+            android:id="@+id/action_nav_games_to_nav_games_views"
+            app:destination="@id/nav_games_views" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_athlete_insert"
+        android:name="com.example.myapplication_drawer.otherFragments.athleteFragments.AthleteInsertFragment"
+        android:label="Εισαγωγή Αθλητή"
+        tools:layout="@layout/fragment_athlete_insert" >
+        <action
+            android:id="@+id/action_nav_athlete_insert_to_nav_athlete"
+            app:destination="@id/nav_athlete" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_athlete_update"
+        android:name="com.example.myapplication_drawer.otherFragments.athleteFragments.AthleteUpdateFragment"
+        android:label="Ενημέρωση Αθλητή"
+        tools:layout="@layout/fragment_athlete_update" >
+        <action
+            android:id="@+id/action_nav_athlete_update_to_nav_athlete"
+            app:destination="@id/nav_athlete" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_athlete_delete"
+        android:name="com.example.myapplication_drawer.otherFragments.athleteFragments.AthleteDeleteFragment"
+        android:label="Διαγραφή Αθλητή"
+        tools:layout="@layout/fragment_athlete_delete" >
+        <action
+            android:id="@+id/action_nav_athlete_delete_to_nav_athlete"
+            app:destination="@id/nav_athlete" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_athlete_view"
+        android:name="com.example.myapplication_drawer.otherFragments.athleteFragments.AthleteViewFragment"
+        android:label="Προβολή"
+        tools:layout="@layout/fragment_athlete_view" >
+        <action
+            android:id="@+id/action_nav_athlete_view_to_nav_athlete"
+            app:destination="@id/nav_athlete" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_games_kinds"
+        android:name="com.example.myapplication_drawer.otherFragments.gamesFragments.GamesEidosFragment"
+        android:label="Διάλεξε το έιδος του αθλήματος"
+        tools:layout="@layout/fragment_games_eidos" >
+        <action
+            android:id="@+id/action_nav_games_kinds_to_nav_games"
+            app:destination="@id/nav_games" />
+        <action
+            android:id="@+id/action_nav_games_kinds_to_nav_games_inserts"
+            app:destination="@id/nav_games_inserts" />
+        <action
+            android:id="@+id/action_nav_games_kinds_to_nav_games_inserts_atomiko"
+            app:destination="@id/nav_games_inserts_atomiko" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_games_inserts"
+        android:name="com.example.myapplication_drawer.otherFragments.gamesFragments.GamesInsertFragment"
+        android:label="Εισαγωγή Ομαδικού Αθλήματος"
+        tools:layout="@layout/fragment_games_insert" >
+        <action
+            android:id="@+id/action_nav_games_inserts_to_nav_games_kinds"
+            app:destination="@id/nav_games_kinds" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_games_inserts_atomiko"
+        android:name="com.example.myapplication_drawer.otherFragments.gamesFragments.GamesInsertAtomikoFragment"
+        android:label="Εισαγωγή Ατομικού Αθλήματος"
+        tools:layout="@layout/fragment_games_insert_atomiko" >
+
+        <action
+            android:id="@+id/action_nav_games_inserts_atomiko_to_nav_games_kinds"
+            app:destination="@id/nav_games_kinds" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_games_deletes"
+        android:name="com.example.myapplication_drawer.otherFragments.gamesFragments.GamesDeleteFragment"
+        android:label="Διαγραφή Παιχνιδιού"
+        tools:layout="@layout/fragment_games_delete">
+        <action
+            android:id="@+id/action_nav_games_deletes_to_nav_games"
+            app:destination="@id/nav_games" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_games_views"
+        android:name="com.example.myapplication_drawer.otherFragments.gamesFragments.GamesViewFragment"
+        android:label="Προβολή Παιχνιδιών"
+        tools:layout="@layout/fragment_games_view">
+        <action
+            android:id="@+id/action_nav_games_views_to_nav_games"
+            app:destination="@id/nav_games" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_sport_inserts"
+        android:name="com.example.myapplication_drawer.otherFragments.sportsFragments.SportInsertFragment"
+        android:label="Εισαγωγή Αθλήματος"
+        tools:layout="@layout/fragment_sport_insert" >
+        <action
+            android:id="@+id/action_nav_sport_inserts_to_nav_sport"
+            app:destination="@id/nav_sport" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_team_inserts"
+        android:name="com.example.myapplication_drawer.otherFragments.teamsFragments.TeamInsertFragment"
+        android:label="Εισαγωγή Ομάδας"
+        tools:layout="@layout/fragment_team_insert" >
+        <action
+            android:id="@+id/action_nav_team_inserts_to_nav_team"
+            app:destination="@id/nav_team" />
+    </fragment>
+    <fragment
+        android:id="@+id/sportUpdateFragment"
+        android:name="com.example.myapplication_drawer.otherFragments.sportsFragments.SportUpdateFragment"
+        android:label="Τροποποίηση Αθλήματος"
+        tools:layout="@layout/fragment_sport_update">
+        <action
+            android:id="@+id/action_sportUpdateFragment_to_nav_sport"
+            app:destination="@id/nav_sport" />
+    </fragment>
+    <fragment
+        android:id="@+id/sportDeleteFragment"
+        android:name="com.example.myapplication_drawer.otherFragments.sportsFragments.SportDeleteFragment"
+        android:label="Διαγραφή Αθλήματος"
+        tools:layout="@layout/fragment_sport_delete">
+        <action
+            android:id="@+id/action_sportDeleteFragment_to_nav_sport"
+            app:destination="@id/nav_sport" />
+    </fragment>
+    <fragment
+        android:id="@+id/sportViewFragment"
+        android:name="com.example.myapplication_drawer.otherFragments.sportsFragments.SportViewFragment"
+        android:label="Προβολή Αθλημάτων"
+        tools:layout="@layout/fragment_sport_view">
+        <action
+            android:id="@+id/action_sportViewFragment_to_nav_sport"
+            app:destination="@id/nav_sport" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamUpdateFragment"
+        android:name="com.example.myapplication_drawer.otherFragments.teamsFragments.TeamUpdateFragment"
+        android:label="Τροποποίηση Ομάδας"
+        tools:layout="@layout/fragment_team_update">
+        <action
+            android:id="@+id/action_teamUpdateFragment_to_nav_team"
+            app:destination="@id/nav_team" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamDeleteFragment"
+        android:name="com.example.myapplication_drawer.otherFragments.teamsFragments.TeamDeleteFragment"
+        android:label="Διαγραφή Ομάδας"
+        tools:layout="@layout/fragment_team_delete">
+        <action
+            android:id="@+id/action_teamDeleteFragment_to_nav_team"
+            app:destination="@id/nav_team" />
+    </fragment>
+    <fragment
+        android:id="@+id/teamViewFragment"
+        android:name="com.example.myapplication_drawer.otherFragments.teamsFragments.TeamViewFragment"
+        android:label="Προβολή Ομάδων"
+        tools:layout="@layout/fragment_team_view">
+        <action
+            android:id="@+id/action_teamViewFragment_to_nav_team"
+            app:destination="@id/nav_team" />
+    </fragment>
+
+
+</navigation>
