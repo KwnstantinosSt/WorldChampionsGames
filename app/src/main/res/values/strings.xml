@@ -25,4 +25,11 @@
     <string name="delete">Διαγραφή</string>
     <string name="view">Προβολή</string>
 
+
+    <string-array name="Greeknames">
+        <item>test1</item>
+        <item>test2</item>
+        <item>test3</item>
+    </string-array>
+
 </resources>

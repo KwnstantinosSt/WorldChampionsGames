@@ -3,12 +3,23 @@ package com.example.myapplication_drawer.otherFragments.athleteFragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.myapplication_drawer.MainActivity;
 import com.example.myapplication_drawer.R;
+import com.example.myapplication_drawer.classes.Athlete;
+import com.example.myapplication_drawer.classes.Sport;
+import com.example.myapplication_drawer.otherFragments.adapters.AthleteAdapter;
+import com.example.myapplication_drawer.otherFragments.adapters.SportAdapter;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,10 +68,25 @@ public class AthleteViewFragment extends Fragment {
         }
     }
 
+    private List<String> names;
+    private RecyclerView.LayoutManager layoutManager;
+    private List<Athlete> athlete ;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_athlete_view, container, false);
+        View root = inflater.inflate(R.layout.fragment_athlete_view, container, false);
+
+        RecyclerView recyclerView = root.findViewById(R.id.athlete_rescycler);
+        layoutManager = new LinearLayoutManager(root.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        names = Arrays.asList(getResources().getStringArray(R.array.Greeknames));
+        athlete = MainActivity.myDB.mydao().getAthlets();
+        AthleteAdapter adapter = new AthleteAdapter((ArrayList<Athlete>) athlete);
+        recyclerView.setAdapter(adapter);
+
+
+        return root;
     }
 }
