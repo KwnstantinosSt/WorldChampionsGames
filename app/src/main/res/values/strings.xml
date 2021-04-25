@@ -24,12 +24,14 @@
     <string name="update">Τροποποίηση</string>
     <string name="delete">Διαγραφή</string>
     <string name="view">Προβολή</string>
-
+    <string name="omadika">Προβολη Ομαδικων</string>
+    <string name="atomika">Προβολη Ατομικων</string>
 
     <string-array name="Greeknames">
         <item>test1</item>
         <item>test2</item>
         <item>test3</item>
     </string-array>
+
 
 </resources>

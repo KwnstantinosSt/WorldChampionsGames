@@ -9,7 +9,7 @@
 
     <Button
         android:id="@+id/games_eidos_omadiko_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="324dp"
@@ -23,7 +23,7 @@
 
     <Button
         android:id="@+id/games_eidos_atomiko_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="320dp"
         android:text="ΑΤΟΜΙΚΟ"

@@ -8,6 +8,7 @@ import androidx.room.Update;
 
 import com.example.myapplication_drawer.classes.Athlete;
 import com.example.myapplication_drawer.classes.Sport;
+import com.example.myapplication_drawer.classes.SportTeamJoin;
 import com.example.myapplication_drawer.classes.Team;
 
 import java.util.ArrayList;
@@ -51,5 +52,14 @@ public interface MyDao {
 
     @Query("select * from team")
     public List<Team> getTeams();
+
+    @Query("select distinct sport_name, t.team_name from sport s inner join team t  on (s.sport_id = t.team_sport_id) where sport_kind = \"omadiko\" or sport_kind = \"Omadiko\" or sport_kind = \"Ομαδικό\" or sport_kind = \"ΟΜΑΔΙΚΟ\"")
+    public List<SportTeamJoin> getSportsOmadika();
+
+    @Query("select distinct sport_name from sport s inner join team t  on (s.sport_id = t.team_sport_id) where sport_kind = \"omadiko\" or sport_kind = \"Omadiko\" or sport_kind = \"Ομαδικό\" or sport_kind = \"ΟΜΑΔΙΚΟ\"")
+    public List<String> getSportsNameJoinTeam();
+
+    @Query("select distinct t.team_name from sport s inner join team t  on (s.sport_id = t.team_sport_id) where sport_kind = \"omadiko\" or sport_kind = \"Omadiko\" or sport_kind = \"Ομαδικό\" or sport_kind = \"ΟΜΑΔΙΚΟ\"")
+    public List<String> getTeamNamejoinSport();
 
 }
