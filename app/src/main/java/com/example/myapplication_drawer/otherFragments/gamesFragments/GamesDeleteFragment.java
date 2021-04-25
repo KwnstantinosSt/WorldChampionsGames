@@ -4,11 +4,17 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.myapplication_drawer.R;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +67,33 @@ public class GamesDeleteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games_delete, container, false);
+        View root = inflater.inflate(R.layout.fragment_games_delete, container, false);
+        Button btn1 = root.findViewById(R.id.games_delete_submit);
+        Button btn2 = root.findViewById(R.id.game_delete_atomiko_submit);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText text = root.findViewById(R.id.games_delete_gameid_txt);
+                db.collection("OmadikaGames").document(text.getText().toString()).delete().addOnCompleteListener(task -> {
+                    Toast.makeText(root.getContext(),"Ο Ομαδικός Αγώνας διγράφτηκε.",Toast.LENGTH_LONG).show();
+                    text.setText(null);
+                });
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText text = root.findViewById(R.id.gameID_atomiko_txt);
+                db.collection("AtomikaGames").document(text.getText().toString()).delete().addOnCompleteListener(task -> {
+                    Toast.makeText(root.getContext(),"Ο Ατομικός Αγώνας διγράφτηκε.",Toast.LENGTH_LONG).show();
+                    text.setText(null);
+                });
+            }
+        });
+
+        return root;
     }
 }

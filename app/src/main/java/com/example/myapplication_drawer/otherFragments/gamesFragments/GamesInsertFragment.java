@@ -121,6 +121,7 @@ public class GamesInsertFragment extends Fragment {
         Spinner txt6 = root.findViewById(R.id.spinnerOmadaB);
         EditText txt7 = root.findViewById(R.id.games_insert_omadiko_skorA_txt);
         EditText txt8 = root.findViewById(R.id.games_insert_omadiko_skorB_txt);
+        EditText txt9 = root.findViewById(R.id.gamesOmadikoID);
         try{
             if(txt1.getText() != null && txt2.getText() != null && txt3.getText() != null && txt4.getSelectedItem() != null && txt5.getSelectedItem() != null && txt6.getSelectedItem() != null && txt7.getText() != null  && txt8.getText() != null){
                 OmadikaGames omadika = new OmadikaGames();
@@ -133,11 +134,17 @@ public class GamesInsertFragment extends Fragment {
                 omadika.setScoreA(Integer.parseInt(txt7.getText().toString()));
                 omadika.setScoreB(Integer.parseInt(txt8.getText().toString()));
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("OmadikaGames").add(omadika).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+            /*    db.collection("OmadikaGames").add(omadika).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         Toast.makeText(root.getContext(),"Ο Αγώνας καταχωρήθηκε.",Toast.LENGTH_LONG).show();
                     }
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(root.getContext(),"Κάποιο σφάλμα συνέβη.",Toast.LENGTH_LONG).show();
+                });*/
+
+                db.collection("OmadikaGames").document(txt9.getText().toString()).set(omadika).addOnCompleteListener(task -> {
+                    Toast.makeText(root.getContext(),"Ο Αγώνας καταχωρήθηκε.",Toast.LENGTH_LONG).show();
                 }).addOnFailureListener(e -> {
                     Toast.makeText(root.getContext(),"Κάποιο σφάλμα συνέβη.",Toast.LENGTH_LONG).show();
                 });
@@ -152,6 +159,7 @@ public class GamesInsertFragment extends Fragment {
             txt6.setSelection(0);
             txt7.setText(null);
             txt8.setText(null);
+            txt9.setText(null);
             return  true;
         }catch (Exception ex){
             Log.i("ErrorDB",ex.getMessage());

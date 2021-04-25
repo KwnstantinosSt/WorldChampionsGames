@@ -7,15 +7,15 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication_drawer.R;
-import com.example.myapplication_drawer.classes.Athlete;
+import com.example.myapplication_drawer.firestoreClasses.AtomikaGames;
 import com.example.myapplication_drawer.firestoreClasses.OmadikaGames;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class GamesOmadikaAdapter extends RecyclerView.Adapter<GamesOmadikaAdapter.ViewHolder> {
-    private ArrayList<OmadikaGames> localDataSet = new ArrayList<OmadikaGames>();
+public class GamesAtomikaAdapter extends RecyclerView.Adapter<GamesAtomikaAdapter.ViewHolder> {
+    private ArrayList<AtomikaGames> localDataSet = new ArrayList<AtomikaGames>();
 
     /**
      * Provide a reference to the type of views that you are using
@@ -40,28 +40,28 @@ public class GamesOmadikaAdapter extends RecyclerView.Adapter<GamesOmadikaAdapte
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public GamesOmadikaAdapter(ArrayList<OmadikaGames> dataSet) {
+    public GamesAtomikaAdapter(ArrayList<AtomikaGames> dataSet) {
         localDataSet = dataSet;
     }
 
     // Create new views (invoked by the layout manager)
     @NotNull
     @Override
-    public GamesOmadikaAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public GamesAtomikaAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         TextView textview = (TextView) LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.text_view_layout, viewGroup, false);
 
-        return new GamesOmadikaAdapter.ViewHolder(textview);
+        return new GamesAtomikaAdapter.ViewHolder(textview);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(GamesOmadikaAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(GamesAtomikaAdapter.ViewHolder viewHolder, final int position) {
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.setText("Κωδικός Αγώνα: " + localDataSet.get(position).getGameId() + "\n" +"Ημερομηνία Αγώνα: " + localDataSet.get(position).getDate() + "\n" + "Πόλη: " + localDataSet.get(position).getCity() + "\n" + "Χώρα: " +  localDataSet.get(position).getCountry() + "\n" + "Άθλημα: " +  localDataSet.get(position).getSport() + "\n" + "Ομάδα Α: " +  localDataSet.get(position).getOmadaA() + "\n" + "Ομάδα Β: " +  localDataSet.get(position).getOmadaB() + "\n" + "Σκορ Α: " +  localDataSet.get(position).getScoreA()+ "\n" + "Σκορ Β: " +  localDataSet.get(position).getScoreB());
+        viewHolder.textView.setText("test");
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -69,5 +69,4 @@ public class GamesOmadikaAdapter extends RecyclerView.Adapter<GamesOmadikaAdapte
     public int getItemCount() {
         return localDataSet.size();
     }
-
 }

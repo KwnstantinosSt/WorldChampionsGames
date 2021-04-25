@@ -62,6 +62,14 @@ public class GamesFragment extends Fragment {
             }
         });
 
+        Button btn4 = root.findViewById(R.id.games_atomika_btn);
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_nav_games_to_gamesViewAtomikaFragment);
+            }
+        });
+
         return root;
     }
 

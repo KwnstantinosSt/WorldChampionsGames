@@ -91,6 +91,7 @@ public class GamesViewFragment extends Fragment {
                     for(QueryDocumentSnapshot document : task.getResult()) {
                         Log.d("test", document.getId() + " => " + document.getData());
                         OmadikaGames game = document.toObject(OmadikaGames.class);
+                        game.setGameId(document.getId());
                         omadikaGames.add(game);
 
                     }

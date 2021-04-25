@@ -80,6 +80,9 @@
         <action
             android:id="@+id/action_nav_games_to_nav_games_views"
             app:destination="@id/nav_games_views" />
+        <action
+            android:id="@+id/action_nav_games_to_gamesViewAtomikaFragment"
+            app:destination="@id/gamesViewAtomikaFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_athlete_insert"
@@ -240,6 +243,15 @@
         <action
             android:id="@+id/action_teamViewFragment_to_nav_team"
             app:destination="@id/nav_team" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamesViewAtomikaFragment"
+        android:name="com.example.myapplication_drawer.otherFragments.gamesFragments.GamesViewAtomikaFragment"
+        android:label="Προβολή Ατομικών Παιχνιδιών"
+        tools:layout="@layout/fragment_games_view_atomika">
+        <action
+            android:id="@+id/action_gamesViewAtomikaFragment_to_nav_games"
+            app:destination="@id/nav_games" />
     </fragment>
 
 

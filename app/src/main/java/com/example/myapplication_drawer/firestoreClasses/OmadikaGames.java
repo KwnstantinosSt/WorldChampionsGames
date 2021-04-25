@@ -9,6 +9,7 @@ public class OmadikaGames {
     private String country;
     private String date;
     private String sport;
+    private String gameId;
 
     public OmadikaGames(){}
 
@@ -74,5 +75,13 @@ public class OmadikaGames {
 
     public void setSport(String sport) {
         this.sport = sport;
+    }
+
+    public String getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(String gameId) {
+        this.gameId = gameId;
     }
 }
