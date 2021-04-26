@@ -61,7 +61,10 @@ public class GamesAtomikaAdapter extends RecyclerView.Adapter<GamesAtomikaAdapte
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.setText("test");
+        ArrayList<String> athletes = localDataSet.get(position).getAthletes();
+        ArrayList<Double> epidoseis = localDataSet.get(position).getEpidoseis();
+        String output = "Κωδικός Αγώνα: " + localDataSet.get(position).getGameId() + "\n" +"Ημερομηνία Αγώνα: " + localDataSet.get(position).getDate() + "\n" + "Πόλη: " + localDataSet.get(position).getCity() + "\n" + "Χώρα: " +  localDataSet.get(position).getCountry() + "\n" + "Άθλημα: " +  localDataSet.get(position).getSport() + "\n" + "Αθλητές: " + athletes + "\n" + "Επιδόσεις: " + epidoseis;
+        viewHolder.textView.setText(output);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -2,13 +2,28 @@ package com.example.myapplication_drawer.otherFragments.gamesFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapplication_drawer.R;
+import com.example.myapplication_drawer.firestoreClasses.AtomikaGames;
+import com.example.myapplication_drawer.firestoreClasses.OmadikaGames;
+import com.example.myapplication_drawer.otherFragments.adapters.GamesAtomikaAdapter;
+import com.example.myapplication_drawer.otherFragments.adapters.GamesOmadikaAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +40,8 @@ public class GamesViewAtomikaFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public ArrayList<AtomikaGames> atomikaGames = new ArrayList<AtomikaGames>();
+    private RecyclerView.LayoutManager layoutManager;
 
     public GamesViewAtomikaFragment() {
         // Required empty public constructor
@@ -62,6 +79,32 @@ public class GamesViewAtomikaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_games_view_atomika, container, false);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("AtomikaGames").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if(task.isSuccessful()){
+                    for(QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("test", document.getId() + " => " + document.getData());
+                        AtomikaGames game = document.toObject(AtomikaGames.class);
+                        game.setGameId(document.getId());
+                        atomikaGames.add(game);
+
+                    }
+
+                    RecyclerView recyclerView = root.findViewById(R.id.gamesViewAtomikaRes);
+                    layoutManager = new LinearLayoutManager(root.getContext());
+                    recyclerView.setLayoutManager(layoutManager);
+                    GamesAtomikaAdapter adapter = new GamesAtomikaAdapter(atomikaGames);
+                    recyclerView.setAdapter(adapter);
+                }else{
+                    Log.w("test", "Error getting documents.", task.getException());
+                }
+            }
+        });
+
 
         return root;
     }
