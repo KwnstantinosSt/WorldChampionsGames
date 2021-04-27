@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,7 +34,7 @@ import java.util.List;
  * Use the {@link GamesInsertFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GamesInsertFragment extends Fragment {
+public class GamesInsertFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -47,6 +48,7 @@ public class GamesInsertFragment extends Fragment {
     public Spinner spinner2;
     public Spinner spinner3;
     public ArrayAdapter<String> adapter;
+
 
     public GamesInsertFragment() {
         // Required empty public constructor
@@ -85,16 +87,18 @@ public class GamesInsertFragment extends Fragment {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_games_insert, container, false);
         List<String> sport_names= MainActivity.myDB.mydao().getSportsNameJoinTeam();
-        List<String> team_names= MainActivity.myDB.mydao().getTeamNamejoinSport();
+      //  List<String> team_names= MainActivity.myDB.mydao().getTeamNamejoinSport();
         spinner1 = (Spinner) root.findViewById(R.id.spinnerSport);
+        spinner1.setOnItemSelectedListener(this);
         spinner2 = (Spinner) root.findViewById(R.id.spinnerOmadaA);
         spinner3 = (Spinner) root.findViewById(R.id.spinnerOmadaB);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_spinner_item,sport_names );
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_spinner_item,team_names );
+  //      ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(root.getContext(), android.R.layout.simple_spinner_item,team_names );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+   //     adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
-        spinner2.setAdapter(adapter2);
-        spinner3.setAdapter(adapter2);
+   //     spinner2.setAdapter(adapter2);
+   //     spinner3.setAdapter(adapter2);
 
         Button submit = root.findViewById(R.id.games_insert_omadiko_submit);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -168,6 +172,23 @@ public class GamesInsertFragment extends Fragment {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        try {
+            String selectedItem = String.valueOf(parent.getItemAtPosition(position));
+            List<String> team_names= MainActivity.myDB.mydao().getTeamNamejoinSport(selectedItem);
+            ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_spinner_item,team_names );
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner2.setAdapter(adapter2);
+            spinner3.setAdapter(adapter2);
 
+        }catch (Exception e){
+            Toast.makeText(view.getContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

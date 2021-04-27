@@ -59,8 +59,8 @@ public interface MyDao {
     @Query("select distinct sport_name from sport s inner join team t  on (s.sport_id = t.team_sport_id) where sport_kind = \"omadiko\" or sport_kind = \"Omadiko\" or sport_kind = \"Ομαδικό\" or sport_kind = \"ΟΜΑΔΙΚΟ\"")
     public List<String> getSportsNameJoinTeam();
 
-    @Query("select distinct t.team_name from sport s inner join team t  on (s.sport_id = t.team_sport_id) where sport_kind = \"omadiko\" or sport_kind = \"Omadiko\" or sport_kind = \"Ομαδικό\" or sport_kind = \"ΟΜΑΔΙΚΟ\"")
-    public List<String> getTeamNamejoinSport();
+    @Query("select distinct t.team_name from sport s inner join team t  on (s.sport_id = t.team_sport_id) where (sport_kind = \"omadiko\" or sport_kind = \"Omadiko\" or sport_kind = \"Ομαδικό\" or sport_kind = \"ΟΜΑΔΙΚΟ\") and s.sport_name= :name")
+    public List<String> getTeamNamejoinSport(String name);
 
     @Query("select distinct s.sport_name from sport s inner join athlete a  on (s.sport_id = a.athlete_sport_id) where sport_kind = \"atomiko\" or sport_kind = \"Atomiko\" or sport_kind = \"Ατομικό\" or sport_kind = \"ΑΤΟΜΙΚΟ\"")
     public List<String> getSportsjoinAtleteNames();
