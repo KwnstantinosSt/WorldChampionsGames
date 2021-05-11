@@ -101,6 +101,8 @@ public class AthleteInsertFragment extends Fragment {
                     createNotification();
                 }else{
                     Toast.makeText(root.getContext(),"Κάποιο σφάλμα συνέβη.",Toast.LENGTH_LONG).show();
+                    //Call Notification method
+                    createNotification();
                 }
             }
         });
@@ -202,10 +204,10 @@ public class AthleteInsertFragment extends Fragment {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity().getApplicationContext(), MainActivity.id)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setLargeIcon(BitmapFactory.decodeResource(
-                        getActivity().getApplicationContext().getResources(), R.mipmap.athlete))
-                .setContentText("Μόλς έγινε μια νέα εισαγωγή αθλητή!")
+                        getActivity().getApplicationContext().getResources(), R.drawable.ic_error))
+                .setContentText("Σφάλμα Εισαγωγής αθλητή!")
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("Εισαγωγή Αθλητή. ")
+                .setContentTitle("Σφάλμα Εισαγωγής!")
                 .setContentIntent(readPendingIntent)
                 .setDeleteIntent(mDeletePendingIntent)
                 .setChannelId(MainActivity.id)

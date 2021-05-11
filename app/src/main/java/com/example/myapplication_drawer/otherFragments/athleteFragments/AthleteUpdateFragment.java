@@ -100,6 +100,8 @@ public class AthleteUpdateFragment extends Fragment {
                     createNotification();
                 }else{
                     Toast.makeText(root.getContext(),"Κάποιο σφάλμα συνέβη.",Toast.LENGTH_LONG).show();
+                    //Call Notification method
+                    createNotification();
                 }
             }
         });
@@ -202,10 +204,10 @@ public class AthleteUpdateFragment extends Fragment {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity().getApplicationContext(), MainActivity.id)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setLargeIcon(BitmapFactory.decodeResource(
-                        getActivity().getApplicationContext().getResources(), R.mipmap.athlete))
-                .setContentText("Μόλις έγινε μια τροποποίηση αθλητή!")
+                        getActivity().getApplicationContext().getResources(), R.drawable.ic_error))
+                .setContentText("Σφάλμα Τροποποίησης αθλητή!")
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("Τροποίηση Αθλητή. ")
+                .setContentTitle("Σφάλμα Τροποποίησης!")
                 .setContentIntent(readPendingIntent)
                 .setDeleteIntent(mDeletePendingIntent)
                 .setChannelId(MainActivity.id)

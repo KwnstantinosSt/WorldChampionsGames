@@ -68,4 +68,5 @@ public interface MyDao {
     @Query("select distinct a.athlete_name from sport s inner join athlete a  on (s.sport_id = a.athlete_sport_id) where (sport_kind = \"atomiko\" or sport_kind = \"Atomiko\" or sport_kind = \"Ατομικό\" or sport_kind = \"ΑΤΟΜΙΚΟ\") and sport_name= :name")
     public List<String> getAthletejoinSportNames(String name);
 
+
 }

@@ -96,10 +96,11 @@ public class AthleteDeleteFragment extends Fragment {
             public void onClick(View v) {
                 if(deleteToDBAthlete(root)){
                     Toast.makeText(root.getContext(),"Ο Αθλητής διαγράφτηκε.",Toast.LENGTH_LONG).show();
-                    //Call Notification method
-                    createNotification();
+
                 }else{
                     Toast.makeText(root.getContext(),"Κάποιο σφάλμα συνέβη.",Toast.LENGTH_LONG).show();
+                    //Call Notification method
+                    createNotification();
                 }
             }
         });
@@ -183,10 +184,10 @@ public class AthleteDeleteFragment extends Fragment {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity().getApplicationContext(), MainActivity.id)
                 .setSmallIcon(R.drawable.ic_notification)
                 .setLargeIcon(BitmapFactory.decodeResource(
-                        getActivity().getApplicationContext().getResources(), R.mipmap.athlete))
-                .setContentText("Μόλις έγινε μια διαγραφή αθλητή!")
+                        getActivity().getApplicationContext().getResources(), R.drawable.ic_error))
+                .setContentText("Σφάλμα Διαγραφής αθλητή!")
                 .setWhen(System.currentTimeMillis())
-                .setContentTitle("Διαγραφή Αθλητή. ")
+                .setContentTitle("Σφάλμα Διαγραφής! ")
                 .setContentIntent(readPendingIntent)
                 .setDeleteIntent(mDeletePendingIntent)
                 .setChannelId(MainActivity.id)
