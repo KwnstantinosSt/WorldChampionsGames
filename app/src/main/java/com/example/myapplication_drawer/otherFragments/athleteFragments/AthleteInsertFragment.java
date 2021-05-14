@@ -97,8 +97,7 @@ public class AthleteInsertFragment extends Fragment {
             public void onClick(View v) {
                 if(insertToDBAthlete(root)){
                     Toast.makeText(root.getContext(),"Ο Αθλητής καταχωρήθηκε.",Toast.LENGTH_LONG).show();
-                    //Call Notification method
-                    createNotification();
+
                 }else{
                     Toast.makeText(root.getContext(),"Κάποιο σφάλμα συνέβη.",Toast.LENGTH_LONG).show();
                     //Call Notification method

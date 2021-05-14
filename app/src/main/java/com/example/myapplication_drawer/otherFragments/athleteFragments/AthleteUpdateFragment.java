@@ -96,8 +96,7 @@ public class AthleteUpdateFragment extends Fragment {
             public void onClick(View v) {
                 if(updateToDBAthlete(root)){
                     Toast.makeText(root.getContext(),"Ο Αθλητής ενημερώθηκε.",Toast.LENGTH_LONG).show();
-                    //Call Notification method
-                    createNotification();
+
                 }else{
                     Toast.makeText(root.getContext(),"Κάποιο σφάλμα συνέβη.",Toast.LENGTH_LONG).show();
                     //Call Notification method

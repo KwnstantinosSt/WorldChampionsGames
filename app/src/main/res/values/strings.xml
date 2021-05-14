@@ -39,5 +39,22 @@
     <string name="channel_name">Test Channel 1</string>
     <string name="channel_description">This is a test channel at level a high level, where lights, sound, and vibration are active.</string>
 
+    <string-array name="queries_array">
+        <item> Athletes Males Names</item>
+        <item> Name From Greek Team</item>
+        <item> Solo Athlete Name</item>
+        <item> Athlete Name From Greek Teams</item>
+        <item> Greek Athletes Names From Thessaloniki</item>
+
+    </string-array>
+
+    <string-array name="queries_description_array">
+        <item> 1. Athletes Males Names.</item>
+        <item> 2. Name From Greek Team</item>
+        <item> 3. Solo Athletes Names</item>
+        <item> 4. Athlete Name From Greek Teams</item>
+        <item> 5. Greek Athletes Names From Thessaloniki</item>
+
+    </string-array>
 
 </resources>

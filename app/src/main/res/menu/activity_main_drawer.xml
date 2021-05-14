@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+    tools:showIn="navigation_view"
+    >
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_home_24"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_home"/>
         <item
             android:id="@+id/nav_sport"
             android:icon="@drawable/ic_baseline_sports_24"
-            android:title="@string/sport" />
+            android:title="@string/sport"/>
         <item
             android:id="@+id/nav_athlete"
             android:title="@string/athlete"
@@ -24,6 +25,12 @@
             android:id="@+id/nav_games"
             android:title="@string/games"
             android:icon="@drawable/ic_baseline_sports_esports_24"  />
+
+        <item
+            android:id="@+id/nav_querys"
+            android:title="Querys"
+            android:icon="@drawable/ic_query"
+            />
 
 
     </group>
