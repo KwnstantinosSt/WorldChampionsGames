@@ -23,7 +23,7 @@
 
     <style name="Theme.MyApplication_Drawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-
+    <style name="Theme.MyApplication_Drawer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     
 </resources>
